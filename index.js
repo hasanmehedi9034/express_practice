@@ -1,6 +1,7 @@
 const express = require('express');
 
 const app = express();
+const handle = require('./handle')
 
 // app.use(express.json());
 // app.use(express.raw());
@@ -9,13 +10,12 @@ const app = express();
 // app.use(express.static(`${__dirname}/public`, {
 //     index: 'home.html'
 // }))
-app.use()
+// app.use()
+
+app.locals.title = 'My App';
 
 
-app.get('/', (req, res) => {
-    
-    res.send('this is home page')
-})
+app.get('/', handle)
 
 app.post('/', (req, res) => {
     console.log(req.body);
